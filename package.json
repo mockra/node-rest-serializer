@@ -1,0 +1,32 @@
+{
+  "name": "node-rest-serializer",
+  "version": "1.0.0",
+  "description": "Serializes objects to support a sideloaded REST format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "find ./test -name '*_test.js' | xargs mocha -AR spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mockra/node-rest-serializer.git"
+  },
+  "keywords": [
+    "rest",
+    "serializer",
+    "json",
+    "api"
+  ],
+  "author": "David Ratajczak <david@mockra.com> (http://mockra.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mockra/node-rest-serializer/issues"
+  },
+  "homepage": "https://github.com/mockra/node-rest-serializer#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  }
+}
