@@ -3,7 +3,7 @@
 #### Install
 
 ```
-  npm install node-rest-serializer
+  npm install rest-serializer --save
 ```
 
 #### Usage
