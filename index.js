@@ -13,7 +13,7 @@ module.exports = function (k, d, o) {
   }
 
   function sideloadData (obj, relations) {
-    _.each(relations, function(relation) {
+    _.each(_.flatten(Array(relations)), function(relation) {
       if (obj[relation.name]) {
         var key = relation.key || 'id'
         serializeData(obj[relation.name], relation)
@@ -24,11 +24,20 @@ module.exports = function (k, d, o) {
   }
 
   function serializeData (data, options) {
-    return _.map(data, function (object) {
-      if (options.without) deleteWithout(object, options.without)
-      if (options.sideload) sideloadData(object, options.sideload)
-      return object
-    })
+    if (_.isArray(data)) {
+      return _.map(data, function (object) {
+        serializeObject(object, options)
+        return object
+      })
+    } else {
+      serializeObject(data, options)
+      return data
+    }
+  }
+
+  function serializeObject (object, options) {
+    if (options.without) deleteWithout(object, options.without)
+    if (options.sideload) sideloadData(object, options.sideload)
   }
 
   function addToJson (name, data) {

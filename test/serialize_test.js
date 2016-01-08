@@ -55,4 +55,12 @@ describe('serialize', function () {
     expect(output.users).to.have.length(2)
     done()
   })
+
+  it('works for single objects', function (done) {
+    var user = { name: 'Jane', posts: this.posts }
+    var output = serialize('user', user, { sideload: { name: 'posts' } })
+    expect(output.user.name).to.eq('Jane')
+    expect(output.posts).to.have.length(1)
+    done()
+  })
 })
