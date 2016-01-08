@@ -1,5 +1,5 @@
 {
-  "name": "node-rest-serializer",
+  "name": "rest-serializer",
   "version": "1.0.0",
   "description": "Serializes objects to support a sideloaded REST format.",
   "main": "index.js",
