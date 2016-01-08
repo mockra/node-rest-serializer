@@ -2,7 +2,7 @@ var _ = require('lodash')
 
 module.exports = function (k, d, o) {
   var json = {}
-  json[k] = serializeData(d, o)
+  json[k] = serializeData(d, o || {})
   return json
 
 

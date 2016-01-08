@@ -49,4 +49,10 @@ describe('serialize', function () {
     expect(output.comments[0].author).to.eq('Winter')
     done()
   })
+
+  it('serializes without an options hash', function (done) {
+    var output = serialize('users', this.users)
+    expect(output.users).to.have.length(2)
+    done()
+  })
 })
