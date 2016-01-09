@@ -31,6 +31,20 @@ example with users.
   {users: [{email: 'test@example.com']}
 ```
 
+If you're side loading a singular association, such as a user that belongs to a
+post, then you need to specify the plural version. Here's an example:
+
+```
+  var user = {id: 2, email: 'test@example.com'}
+  var post = {title: 'test post', user: user}
+  serialize('post', post, { sideload: 'user', plural: 'users' })
+
+  //output
+  { post: { title: 'test post', user: 2 },
+    users: [{id: 2, email: 'test@example.com'}] }
+  
+```
+
 #### Advanced Usage
 
 Here's an example with a more complex use case.
