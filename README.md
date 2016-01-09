@@ -28,7 +28,7 @@ example with users.
   serialize('users', { without: ['password', 'token'] })
 
   //output
-  [{email: 'test@example.com']
+  {users: [{email: 'test@example.com']}
 ```
 
 #### Advanced Usage
