@@ -63,4 +63,14 @@ describe('serialize', function () {
     expect(output.posts).to.have.length(1)
     done()
   })
+
+  it('works for single associations', function (done) {
+    var user = { name: 'Jane', post: { id: 24, title: 'single post' } }
+    var output = serialize('user', user, { sideload: {
+      name: 'post', plural: 'posts' } })
+    expect(output.user.name).to.eq('Jane')
+    expect(output.user.post).to.eq(24)
+    expect(output.posts[0].title).to.eq('single post')
+    done()
+  })
 })

@@ -17,8 +17,12 @@ module.exports = function (k, d, o) {
       if (obj[relation.name]) {
         var key = relation.key || 'id'
         serializeData(obj[relation.name], relation)
-        addToJson(relation.name, obj[relation.name])
-        obj[relation.name] = _.pluck(obj[relation.name], key)
+        addToJson(relation.plural || relation.name, obj[relation.name])
+        if (_.isArray(obj[relation.name])) {
+          obj[relation.name] = _.pluck(obj[relation.name], key)
+        } else {
+          obj[relation.name] = obj[relation.name][key]
+        }
       }
     })
   }
@@ -41,6 +45,7 @@ module.exports = function (k, d, o) {
   }
 
   function addToJson (name, data) {
+    data = _.flatten(Array(data))
     if (json[name]) {
       json[name].concat(data)
     } else {
