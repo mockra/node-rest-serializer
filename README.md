@@ -12,7 +12,7 @@ Here's a basic example of serializing an array of post objects with their
 comments included.
 
 ```
-  serialize('posts', { sideload: [{ name: 'comments' }] })
+  serialize('posts', posts, { sideload: [{ name: 'comments' }] })
 
   // output
   { posts: [ { title: 'test post', comments: [24] } ],
