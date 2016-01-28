@@ -37,7 +37,7 @@ post, then you need to specify the plural version. Here's an example:
 ```
   var user = {id: 2, email: 'test@example.com'}
   var post = {title: 'test post', user: user}
-  serialize('post', post, { sideload: 'user', plural: 'users' })
+  serialize('post', post, { sideload: {name: 'user', plural: 'users' } })
 
   //output
   { post: { title: 'test post', user: 2 },
